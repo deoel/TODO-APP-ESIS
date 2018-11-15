@@ -1,10 +1,23 @@
 <?php
     include_once('entete.php');
 ?>
-
-<h3>Liste de mes taches</h3>
+    <?php
+        $db = new PDO('mysql:host=localhost; dbname=todoapp', 'root', '');
+        $rq = 'SELECT * FROM tache';
+        $v = array();
+        $res = $db->prepare($rq);
+        $res->execute($v);
+    
+        $i = 0;
+        while($t = $res->fetch(PDO::FETCH_OBJ))
+        {
+            $i++;
+        }
+        
+        echo  "<h3>Liste de mes taches (".$i.")</h3>";
+    ?>
 <?php
-    $db = new PDO('mysql:host=localhost;dbname=todoapp', 'root', '');
+    $db = new PDO('mysql:host=localhost; dbname=todoapp', 'root', '');
     $rq = 'SELECT * FROM tache';
     $v = array();
     $res = $db->prepare($rq);
@@ -20,6 +33,7 @@
                 <em>au '.$t->date_fin.'</em>,
                 '.$t->description.'
                 <a href="conf_sup_tache.php?id_tache='.$t->id.'">Supprimer</a>
+                <a href="modif_tache.php?id_tache='.$t->id.'">Modifier cette tache</a>
             </p>
         ';
         $i++;
