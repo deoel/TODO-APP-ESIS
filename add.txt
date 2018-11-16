@@ -1,0 +1,11 @@
+- afficher le nombre de tâches
+- modifier une tâche
+- changer le format d'affichage de la date
+- afficher le nom de la tâche à supprimer dans 
+    la confirmation
+- verification de la date:
+    * si aucune date n'a pas été precisée, prendre la date d'aujourd'hui
+    * si la date de fin n'a pas été precisée, prendre la date de debut pour la fin
+    * si la date de debut est inférieure à celle d'aujourd'hui, prendre celle d'aujourd'hui
+- enregistrer plusieurs tâches à la fois
+
